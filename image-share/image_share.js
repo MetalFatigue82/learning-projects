@@ -1,4 +1,3 @@
-/// <reference path=".typescript/meteor.d.ts" />
 if (Meteor.isClient) {
   var img_data = [{
     img_src: "TheWitcher3Skyrim-600x250.jpg",
