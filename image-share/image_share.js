@@ -16,7 +16,10 @@ if (Meteor.isClient) {
   //Events for a given template
   Template.images.events({
     'click .js-image':function (events) {
-      $(event.target).css('width', "50px")
+      if($(event.target).css('width') == "50px")
+        $(event.target).css('width', "")
+      else
+        $(event.target).css('width', "50px")
     }
   })
 }
