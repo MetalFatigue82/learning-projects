@@ -5,6 +5,6 @@ import {bootstrap, Component} from 'angular2/angular2';
 })
 class AppComponent {
     public title = 'Tour of Heroes';
-    public hero = 'Windstorm Fartner';
+    public hero = 'Windstorm';
  }
 bootstrap(AppComponent); 
