@@ -1,3 +1,8 @@
+/* global Images */
+//Global (Server & CLient code)
+Images = new Mongo.Collection("images")
+console.log(Images.find().count());
+
 if (Meteor.isClient) {
   var img_data = [{
     img_src: "TheWitcher3Skyrim-600x250.jpg",
