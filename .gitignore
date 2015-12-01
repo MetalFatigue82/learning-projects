@@ -5,3 +5,4 @@ typings
 node_modules
 angular*/**/*.js
 angular*/**/*.js.map
+coursera-exams
