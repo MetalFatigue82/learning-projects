@@ -3,5 +3,5 @@
 typings
 .vscode
 node_modules
-*.js
-*.js.map
+angular*/**/*.js
+angular*/**/*.js.map
