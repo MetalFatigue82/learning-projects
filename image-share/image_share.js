@@ -3,10 +3,24 @@
 Images = new Mongo.Collection("images")
 
 if (Meteor.isClient) {
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_AND_EMAIL"
+  });
   //the name given to the property must match the name on the each object in the template "i"
   Template.images.helpers({ i: 
       Images.find({}, {sort: {createdOn: -1, rating: -1}}) 
     });
+    
+    Template.body.helpers({username: function () {
+      if(Meteor.user()) {
+        return Meteor.user().emails[0].address;
+      }
+      else {
+        return "who are you?";
+      }
+    }   
+    });
+    
   //Events for a given template
   Template.images.events({
     'click .js-image': function (event) {
