@@ -57,6 +57,7 @@
           <h3>Rating: {{rating}}</h3>
           <p>{{img_alt}}</p>
           <p>{{> starsRating class="js-rate-image" rating=rating data-id=_id mutable=true}}</p>
+          <p>user: {{getUsername(createdBy)}}</p>
           <button class="js-del-image btn btn-warning">Delete</button>
         </div>
       </div>
