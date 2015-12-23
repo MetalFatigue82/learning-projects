@@ -10,4 +10,9 @@
 
 body {
 	padding-top: 60px;
+	overflow: hidden;
+}
+
+.single-img {
+	width:100%;
 }
