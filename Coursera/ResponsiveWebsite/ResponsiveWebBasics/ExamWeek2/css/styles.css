@@ -1,0 +1,11 @@
+input.finished-task {
+    margin-left: 15px;
+}
+
+.home input.finished-task {
+    margin-right: 15px;
+}
+
+h2.task-title {
+    display: inline-block;
+}
