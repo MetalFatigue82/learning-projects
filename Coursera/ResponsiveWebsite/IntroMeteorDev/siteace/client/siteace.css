@@ -2,3 +2,32 @@
 .hidden_div{
 	display:none;
 }
+
+a#login-sign-in-link, a#login-name-link {
+    display: inline-block;
+    color: #5e5e5e;
+    background-color: transparent;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+a#login-sign-in-link:hover, a#login-name-link:hover {
+    text-decoration: underline;
+}
+
+.total-votes {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: blue;
+}
+
+.down-votes{
+    color: red;
+}
+
+.up-votes{
+    color: green;
+}
