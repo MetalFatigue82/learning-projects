@@ -18,8 +18,11 @@ Router.route('/details/:_id', function () {
     this.render('navbar', {
         to: "navbar"
     });
-    this.render('website_list', {
-        to: "main"
+    this.render('website_details', {
+        to: "main",
+        data: function () {
+            Websites.findOne({_id:this.params._id});
+        }
     });
 });
 
