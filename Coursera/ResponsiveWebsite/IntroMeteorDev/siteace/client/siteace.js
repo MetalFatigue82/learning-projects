@@ -21,7 +21,8 @@ Router.route('/details/:_id', function () {
     this.render('website_details', {
         to: "main",
         data: function () {
-            Websites.findOne({_id:this.params._id});
+            var site = Websites.findOne({_id:this.params._id});
+            return site;
         }
     });
 });
@@ -63,6 +64,12 @@ Template.website_list.helpers({
                 }});
     }
 });
+// Template.website_details.helpers({
+//     site: function () {
+//         return this;
+//     }
+// });
+
 
 // helper function that returns the difference between upvotes and downvotes
 Template.website_item.helpers({
@@ -80,6 +87,9 @@ Template.website_item.helpers({
     }
 });
 
+Template.website_comments.helpers({
+    getUsername: getUsername
+});
 
 /////
 // template events 
@@ -116,6 +126,30 @@ Template.website_item.events({
 })
 
 Template.website_form.events({
+    "change #url":function () {
+        //On the client
+        var url = event.target.value;
+        if (url.indexOf("http://") == -1) {
+            url = "http://" + url;
+        }
+        Meteor.call('remoteGet',url,{
+        //...options...
+        },function(error,response){
+            //if an error happened, error argument contains the details
+            if (error) {
+                return false;
+            }
+            //if the request succeeded, the response will contain the response of the server request
+            var title = $(response.content).filter('title').text();
+            var description = $(response.content).filter('meta[name=description]').attr("content");
+            
+            $('#title').val(title);
+            $('#description').val(description);
+        })
+    }
+});
+
+Template.website_form.events({
     "click .js-toggle-website-form": function (event) {
         $("#website_form").toggle('slow');
     },
@@ -140,3 +174,28 @@ Template.website_form.events({
 
     }
 });
+
+Template.website_comments.events({
+    "submit .js-toggle-website-comment-form": function (event) {
+        var userID = Meteor.user() ? Meteor.user()._id : undefined;
+        var comment = event.target.comment.value;
+        event.target.comment.value='';
+        Websites.update(this._id, {
+            $push: {
+                comments: {
+                    comment:comment,
+                    postedBy: userID
+                }
+            }
+        });
+        return false;
+    }
+});
+
+//On the client
+Meteor.call('remoteGet','http://remoteurl.com/',{
+  
+},function(error,response){
+  //if an error happened, error argument contains the details
+  //if the request succeeded, the response will contain the response of the server request
+})

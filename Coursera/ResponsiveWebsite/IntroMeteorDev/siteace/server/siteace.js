@@ -8,7 +8,14 @@ Meteor.startup(function () {
             title: "Goldsmiths Computing Department",
             url: "http://www.gold.ac.uk/computing/",
             description: "This is where this course was developed.",
-            createdOn: new Date()
+            createdOn: new Date(),
+            comments: [{
+                comment:"Goldsmith people are grea!",
+                postedBy: undefined
+                }, {
+                comment:"great stuff, enough siad!",
+                postedBy: "RoCphPfKbvtYyjMdA"
+                }]
         });
         Websites.insert({
             title: "University of London",
@@ -29,5 +36,12 @@ Meteor.startup(function () {
             createdOn: new Date()
         });
     }
+});
+
+//On the server
+Meteor.methods({
+  'remoteGet' : function(url,options){
+    return HTTP.get(url,options);
+  }
 });
 
