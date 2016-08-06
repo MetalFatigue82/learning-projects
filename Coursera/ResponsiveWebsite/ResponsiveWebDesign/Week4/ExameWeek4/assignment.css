@@ -1,0 +1,49 @@
+#intro { 
+    background: url(images/intro.png) 50% 0 fixed; 
+    height: auto;  
+    margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 100px 0;
+}
+
+#intro img { 
+    max-height: 200px;
+    width: 100%;
+}
+
+#home { 
+    background: url(images/home.jpg) 50% 0 fixed; 
+    height: auto;  
+    margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 200px 0;
+}
+
+#about { 
+    background: url(images/about.png) 50% 0 fixed; 
+    height: auto;
+    margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 100px 0;
+    color: #fff;
+}
+
+.jumbotron {
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+section#about .jumbotron {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.category img {
+    max-width: 100%;
+}
